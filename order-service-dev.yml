@@ -1,0 +1,29 @@
+spring:
+  profiles: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:52432/ordersb
+    username: postgres
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  security:
+    user:
+      name: admin
+      password: dev_password
+
+jwt:
+  secret: joyo6iW6baFCaYL0r/+qwdCXe7t18lmxtyGHrMsEVP4=
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    com.warehouse.order_service.filter: DEBUG
+
