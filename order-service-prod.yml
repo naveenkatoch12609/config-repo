@@ -1,21 +1,26 @@
 spring:
+  application:
+    name: order-service
   datasource:
     url: ${SPRING_DATASOURCE_URL}
     username: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
-  cloud:
-    stream:
-      defaultBinder: kafka
-
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: false
-
   security:
     user:
       name: admin
       password: ${SPRING_SECURITY_PASSWORD}
+  cloud:
+    config:
+      fail-fast: true
+    stream:
+      defaultBinder: kafka
+      kafka:
+        binder:
+          brokers: kafka.default.svc.cluster.local:9092
 
 jwt:
   secret: ${JWT_SECRET}
